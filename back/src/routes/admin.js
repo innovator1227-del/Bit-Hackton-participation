@@ -367,7 +367,7 @@ router.patch(
     const category = await Category.findOneAndUpdate(
       { slug: req.params.slug },
       { $set: updates },
-      { new: true, runValidators: true },
+      { returnDocument: "after", runValidators: true },
     )
       .select("slug name description is_active -_id")
       .lean();

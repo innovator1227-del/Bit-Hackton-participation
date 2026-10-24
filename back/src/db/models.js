@@ -122,7 +122,7 @@ async function nextId(name, session) {
   const counter = await Counter.findByIdAndUpdate(
     name,
     { $inc: { value: 1 } },
-    { new: true, upsert: true, session },
+    { returnDocument: "after", upsert: true, session },
   );
   return counter.value;
 }
