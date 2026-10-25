@@ -113,13 +113,13 @@ export default function Login() {
               <input
                 type={showPassword ? "text" : "password"}
                 autoComplete={registering ? "new-password" : "current-password"}
-                minLength={registering ? 10 : 1}
+                minLength={registering ? 4 : 1}
                 maxLength="128"
                 required
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
                 placeholder={
-                  registering ? "At least 10 characters" : "Your password"
+                  registering ? "At least 4 characters" : "Your password"
                 }
               />
               <button
@@ -132,7 +132,7 @@ export default function Login() {
               </button>
             </div>
             {registering && (
-              <small className="field-hint">Use at least 10 characters.</small>
+              <small className="field-hint">Use at least 4 characters.</small>
             )}
           </label>
           <button className="btn btn-primary auth-submit" disabled={busy}>

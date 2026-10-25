@@ -14,7 +14,7 @@ const credentials = z.object({
     .email()
     .max(254)
     .transform((v) => v.toLowerCase()),
-  password: z.string().min(10).max(128),
+  password: z.string().min(4).max(128),
 });
 const signup = credentials.extend({ name: z.string().trim().min(2).max(120) });
 const issueToken = (user) =>
